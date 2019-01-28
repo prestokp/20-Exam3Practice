@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Kirk Preston.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -142,6 +142,11 @@ def practice_problem4a(sequence):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
+    y = []
+    for k in range(len(sequence),-1,-1):
+        if sequence[k] == sequence[k-1]:
+            y = y + [k]
+    return y
 
 
 def run_test_practice_problem4b():
@@ -307,6 +312,12 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
+    for k in range(len(points)):
+        if is_prime(rg.Point.x) and is_prime(rg.Point.y):
+            rg.Point.x = rg.Point.y and rg.Point.y = rg.Point.x
+    return points[k]
+
+
 
 
 def run_test_practice_problem4d():
