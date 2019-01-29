@@ -29,6 +29,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 #    on it, in class or via Piazza.
 ###############################################################################
 
+import math
 import rosegraphics as rg
 
 
@@ -102,6 +103,48 @@ def hourglass(window, n, point, radius, color):
     #    DIFFICULTY:      8
     #    TIME ESTIMATE:  25 minutes (warning: this problem is challenging)
     # -------------------------------------------------------------------------
+    x = point.x
+    localy = point.y
+    for i in range(n):
+        localx = x
+        for k in range(i+1):
+            circle = rg.Circle(rg.Point(localx, localy), radius)
+            circle.fill_color = color
+            circle.attach_to(window)
+
+            startx = localx - radius
+            endx = localx + radius
+            line = rg.Line(rg.Point(startx, localy), rg.Point(endx, localy))
+            line.attach_to(window)
+
+            localx = localx + radius*2
+        x = x - radius
+        localy = localy - radius * 2 * math.sqrt(3)/2
+
+    localy = point.y
+    x = point.x - radius
+    localy = localy + radius * 2 * math.sqrt(3) / 2
+
+    for i in range(n-1):
+        localx = x
+        for k in range(i+2):
+            circle = rg.Circle(rg.Point(localx, localy), radius)
+            circle.fill_color = color
+            circle.attach_to(window)
+
+            startx = localx - radius
+            endx = localx + radius
+            line = rg.Line(rg.Point(startx, localy), rg.Point(endx, localy))
+            line.attach_to(window)
+
+            localx = localx + radius * 2
+        x = x - radius
+        localy = localy + radius * 2 * math.sqrt(3) / 2
+
+    window.render()
+
+
+
 
 
 def run_test_many_hourglasses():
