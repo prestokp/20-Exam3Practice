@@ -135,7 +135,7 @@ def practice_problem4a(sequence):
       :type sequence: list | tuple | string
     """
     ###########################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -143,8 +143,8 @@ def practice_problem4a(sequence):
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
     y = []
-    for k in range(len(sequence),-1,-1):
-        if sequence[k] == sequence[k-1]:
+    for k in range(len(sequence)-1):
+        if sequence[k] == sequence[k+1]:
             y = y + [k]
     return y
 
@@ -203,13 +203,19 @@ def practice_problem4b(sequence):
       :type sequence: (list | tuple) of (float | int)
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     ###########################################################################
+    max = sequence[0]
+    for k in range(len(sequence)):
+        if k % 2 == 0:
+            if sequence[k] > max:
+                max = sequence[k]
+    return max
 
 
 def run_test_practice_problem4c():
@@ -312,10 +318,10 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
-    for k in range(len(points)):
-        if is_prime(rg.Point.x) and is_prime(rg.Point.y):
-            rg.Point.x = rg.Point.y and rg.Point.y = rg.Point.x
-    return points[k]
+    #for k in range(len(points)):
+        #if is_prime(rg.Point.x) and is_prime(rg.Point.y):
+            #rg.Point.x = rg.Point.y and rg.Point.y = rg.Point.x
+    #return points[k]
 
 
 
@@ -410,7 +416,11 @@ def practice_problem4d(sequence):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
-
+    total = 0
+    for k in range(len(sequence)-1):
+        if is_prime(sequence[k]) and is_prime(sequence[k+1]) and sequence[k] != sequence[k+1]:
+            total = total + sequence[k]
+    return total
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
