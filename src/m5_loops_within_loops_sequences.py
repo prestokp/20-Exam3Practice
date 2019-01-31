@@ -197,7 +197,7 @@ def big_letters(sequence_of_sequences):
     Precondition:  the given argument is a sequence of sequences.
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     ###########################################################################
@@ -224,7 +224,6 @@ def big_letters(sequence_of_sequences):
         for j in range(len(sequence_of_sequences[k])):
             if type(sequence_of_sequences[k]) is str and sequence_of_sequences[k][j].isupper():
                 y = y + sequence_of_sequences[k][j]
-                #print(sequence_of_sequences[k][j])
     return y
 
 # -----------------------------------------------------------------------------

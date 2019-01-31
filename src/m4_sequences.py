@@ -318,10 +318,14 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
-    #for k in range(len(points)):
-        #if is_prime(rg.Point.x) and is_prime(rg.Point.y):
-            #rg.Point.x = rg.Point.y and rg.Point.y = rg.Point.x
-    #return points[k]
+    for k in range(len(points)):
+        if is_prime(points[k].x) and is_prime(points[k].y):
+            a = points[k].x
+            points[k].x = points[k].y
+            points[k].y = a
+            return points[k]
+
+
 
 
 

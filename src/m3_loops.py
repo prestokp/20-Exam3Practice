@@ -217,6 +217,16 @@ def practice_problem3(start, n, threshold):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
     ###########################################################################
+    list = []
+    while True:
+        if len(list)==n:
+            break
+        if math.cos(start) + math.sin(start) > threshold:
+            list = list+ [start]
+
+        start = start + 1
+
+    return list
 
 
 # -----------------------------------------------------------------------------
